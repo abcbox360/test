@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/test/static/js/main.a8ca4b51.js",
+    "main.js": "/test/static/js/main.a66e04d2.js",
     "static/media/1-1.jpg": "/test/static/media/1-1.98fbd2e8de5502b486d2.jpg",
     "static/media/1-2.jpg": "/test/static/media/1-2.4742b688d71a7fc7c925.jpg",
     "static/media/1.jpg": "/test/static/media/1.548845cac42237b8af6d.jpg",
@@ -14,18 +14,22 @@
     "static/media/girl.png": "/test/static/media/girl.f7888df329cf52eff777.png",
     "static/media/op0.mp3": "/test/static/media/op0.18b79b2acf27c58686f6.mp3",
     "static/media/boy.png": "/test/static/media/boy.83ad10de6c81c57cf293.png",
+    "static/media/broom.png": "/test/static/media/broom.cdb1d0ef183b4872f74b.png",
     "static/media/stage1_name1.mp3": "/test/static/media/stage1_name1.78c69863611f7512bcf5.mp3",
     "static/media/stage1_name2.mp3": "/test/static/media/stage1_name2.69ae8e4937f865b26dda.mp3",
     "static/media/op4.mp3": "/test/static/media/op4.5f64de0534ef1c25f2c2.mp3",
+    "static/media/stage2_ans2.mp3": "/test/static/media/stage2_ans2.c69892f23c9abe746f1c.mp3",
+    "static/media/stage2_ask.mp3": "/test/static/media/stage2_ask.96afdc41d3c1b73901c3.mp3",
+    "static/media/stage2_ans1.mp3": "/test/static/media/stage2_ans1.eddabeeaf6cb53922a25.mp3",
     "static/media/stage1_ask.mp3": "/test/static/media/stage1_ask.816d5567306b477cb910.mp3",
     "static/media/op3.mp3": "/test/static/media/op3.95ff544840cf50c3d64f.mp3",
     "static/media/op1.mp3": "/test/static/media/op1.14950b6bb29f9cae9c6f.mp3",
     "static/media/stage1_what.mp3": "/test/static/media/stage1_what.4d23576656b577dae686.mp3",
     "static/media/op2.mp3": "/test/static/media/op2.2b291e2b8e14e6772e8f.mp3",
     "index.html": "/test/index.html",
-    "main.a8ca4b51.js.map": "/test/static/js/main.a8ca4b51.js.map"
+    "main.a66e04d2.js.map": "/test/static/js/main.a66e04d2.js.map"
   },
   "entrypoints": [
-    "static/js/main.a8ca4b51.js"
+    "static/js/main.a66e04d2.js"
   ]
 }
