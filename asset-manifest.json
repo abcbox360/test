@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/test/static/js/main.575fc6c6.js",
+    "main.js": "/test/static/js/main.20cea00c.js",
     "static/media/1-1.jpg": "/test/static/media/1-1.98fbd2e8de5502b486d2.jpg",
     "static/media/1-2.jpg": "/test/static/media/1-2.4742b688d71a7fc7c925.jpg",
     "static/media/1.jpg": "/test/static/media/1.548845cac42237b8af6d.jpg",
@@ -21,15 +21,18 @@
     "static/media/stage2_ans2.mp3": "/test/static/media/stage2_ans2.c69892f23c9abe746f1c.mp3",
     "static/media/stage2_ask.mp3": "/test/static/media/stage2_ask.96afdc41d3c1b73901c3.mp3",
     "static/media/stage2_ans1.mp3": "/test/static/media/stage2_ans1.eddabeeaf6cb53922a25.mp3",
+    "static/media/stage3_ask.mp3": "/test/static/media/stage3_ask.ffadc5d11dc6eb9a023b.mp3",
     "static/media/stage1_ask.mp3": "/test/static/media/stage1_ask.816d5567306b477cb910.mp3",
     "static/media/op3.mp3": "/test/static/media/op3.95ff544840cf50c3d64f.mp3",
     "static/media/op1.mp3": "/test/static/media/op1.14950b6bb29f9cae9c6f.mp3",
     "static/media/stage1_what.mp3": "/test/static/media/stage1_what.4d23576656b577dae686.mp3",
+    "static/media/stage3_no.mp3": "/test/static/media/stage3_no.9808a4d479fa2a055d13.mp3",
     "static/media/op2.mp3": "/test/static/media/op2.2b291e2b8e14e6772e8f.mp3",
+    "static/media/stage3_yes.mp3": "/test/static/media/stage3_yes.131533635213baa68961.mp3",
     "index.html": "/test/index.html",
-    "main.575fc6c6.js.map": "/test/static/js/main.575fc6c6.js.map"
+    "main.20cea00c.js.map": "/test/static/js/main.20cea00c.js.map"
   },
   "entrypoints": [
-    "static/js/main.575fc6c6.js"
+    "static/js/main.20cea00c.js"
   ]
 }
