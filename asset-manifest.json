@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.js": "/test/static/js/main.a8ca4b51.js",
+    "static/media/1-1.jpg": "/test/static/media/1-1.98fbd2e8de5502b486d2.jpg",
+    "static/media/1-2.jpg": "/test/static/media/1-2.4742b688d71a7fc7c925.jpg",
+    "static/media/1.jpg": "/test/static/media/1.548845cac42237b8af6d.jpg",
+    "static/media/2.jpg": "/test/static/media/2.fd865208d1ff21581041.jpg",
+    "static/media/target-2-2.png": "/test/static/media/target-2-2.18d609c00a9c53a6de2d.png",
+    "static/media/player-1.png": "/test/static/media/player-1.9c1a2c966abb63d4a53d.png",
+    "static/media/player-2.png": "/test/static/media/player-2.6da59c2f8785efada7b5.png",
+    "static/media/target-2-1.png": "/test/static/media/target-2-1.12ee9b8b1fbb20e4bf77.png",
+    "static/media/target-1-2.png": "/test/static/media/target-1-2.5eff96b3d608970fc7f2.png",
+    "static/media/target-1-1.png": "/test/static/media/target-1-1.e8d7a2fce9e0b995ef28.png",
+    "static/media/girl.png": "/test/static/media/girl.f7888df329cf52eff777.png",
+    "static/media/op0.mp3": "/test/static/media/op0.18b79b2acf27c58686f6.mp3",
+    "static/media/boy.png": "/test/static/media/boy.83ad10de6c81c57cf293.png",
+    "static/media/stage1_name1.mp3": "/test/static/media/stage1_name1.78c69863611f7512bcf5.mp3",
+    "static/media/stage1_name2.mp3": "/test/static/media/stage1_name2.69ae8e4937f865b26dda.mp3",
+    "static/media/op4.mp3": "/test/static/media/op4.5f64de0534ef1c25f2c2.mp3",
+    "static/media/stage1_ask.mp3": "/test/static/media/stage1_ask.816d5567306b477cb910.mp3",
+    "static/media/op3.mp3": "/test/static/media/op3.95ff544840cf50c3d64f.mp3",
+    "static/media/op1.mp3": "/test/static/media/op1.14950b6bb29f9cae9c6f.mp3",
+    "static/media/stage1_what.mp3": "/test/static/media/stage1_what.4d23576656b577dae686.mp3",
+    "static/media/op2.mp3": "/test/static/media/op2.2b291e2b8e14e6772e8f.mp3",
+    "index.html": "/test/index.html",
+    "main.a8ca4b51.js.map": "/test/static/js/main.a8ca4b51.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a8ca4b51.js"
+  ]
+}
