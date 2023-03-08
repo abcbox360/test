@@ -135,7 +135,7 @@ animation: ${shake} 2s linear infinite ;
 function Opening(props) {
     const [step, setStep] = useState(0)
     const [backImage, setBackImage] = useState(image.back[0])
-    const { setStage } = props
+    const { setStage, stage } = props
     const handleClickStep = () => {
         document.getElementById("s" + step).pause()
         document.getElementById("s" + step).currentTime = 0
@@ -157,22 +157,22 @@ function Opening(props) {
     }, [step])
     return <Container>
         <BackImage src={backImage} />
-        {sound.opening.map((s, i) => <audio src={s} key={"s" + i} id={"s" + i}></audio>)}
+        {sound[stage].map((s, i) => <audio src={s} key={"s" + i} id={"s" + i}></audio>)}
         {step === 0 && <Step0Text>
-            {text.opening[0].map((t) => <div key={t}>{t}</div>)}
+            {text[stage][0].map((t) => <div key={t}>{t}</div>)}
             <StartButton onClick={handleClickStep}>開始</StartButton>
         </Step0Text>}
         {step > 0 && step < 4 &&
             <StepText>
                 <HeadImage src={image.head[step % 2]}/>
-                {text.opening[step].map((t) => <Text key={t}>{t}</Text>)}
+                {text[stage][step].map((t) => <Text key={t}>{t}</Text>)}
                 <StepButton onClick={handleClickStep}><BsChevronRight /></StepButton>
             </StepText>
         }
         {step > 3 &&
             <StepText>
                 <HeadImage src={image.head[step % 2]}/>
-                {text.opening[step].map((t) => <Text key={t}>{t}</Text>)}
+                {text[stage][step].map((t) => <Text key={t}>{t}</Text>)}
                 <ReplayButton onClick={handleClickReplay}>再看一次</ReplayButton>
                 <NextButton onClick={() => setStage(1)}>下一階段</NextButton>
             </StepText>

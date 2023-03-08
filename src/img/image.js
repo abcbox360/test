@@ -9,6 +9,9 @@ import left1 from "../img/target-1-1.png"
 import left2 from "../img/target-1-2.png"
 import right1 from "../img/target-2-1.png"
 import right2 from "../img/target-2-2.png"
+import pen from "../img/pen.png"
+import eraser from "../img/eraser.png"
+import broom from "../img/broom.png"
 
 
 export const image = {
@@ -17,4 +20,7 @@ export const image = {
     player: [player1,player2],
     leftStudent: [left1,left2],
     rightStudent: [right1,right2],
+    pen: pen,
+    eraser: eraser,
+    broom: broom
 }
