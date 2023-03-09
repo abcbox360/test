@@ -4,6 +4,7 @@ import Stage1 from "./games/Game"
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react"
 import { image } from "./img/image"
+import Loading from "./Loading";
 
 const Container = styled.div`
 width: 100%;
@@ -52,29 +53,34 @@ color: black;
 `
 function Medium() {
     const [stage, setStage] = useState(0)
-    //預加載圖片
+    const [loading, setLoading] = useState(true)
+    //預加載圖片&loading判斷
     useEffect(() => {
         for (const key in image) {
-            if (image[key].isArray) {
-                image[key].map((i) => {
-                    new Image().src = i
-                })
+            if (Array.isArray(image[key])) {
+                image[key].map((img, i) => {
+                    if (key === 'back' && i === 1) {
+                        const x = new Image()
+                        x.onload = () => {
+                            setLoading(false)
+                        }
+                        x.src = img
+                    } else {
+                        new Image().src = img
+                    }
+                });
             } else {
                 new Image().src = image[key]
             }
         }
     }, [])
     //loading
-    useEffect(()=>{
-        fetchAllPost();
-    },[])
-    const fetchAllPost = () => {
-        
-    }
+
     return <Container>
         <TeachHead>中級教學模組</TeachHead>
         <Level>中級</Level>
         <ReturnButton to="/">返回</ReturnButton>
+        {loading && <Loading />}
         {stage === 0 && <Opening stage={stage} setStage={setStage} />}
         {stage > 0 && <Stage1 stage={stage} setStage={setStage} />}
     </Container>

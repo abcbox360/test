@@ -1,6 +1,7 @@
 import backImage1 from "../img/1.jpg"
 import backImage2 from "../img/1-1.jpg"
 import backImage3 from "../img/1-2.jpg"
+import backImage4 from "../img/2.jpg"
 import boy from "../img/boy.png"
 import girl from "../img/girl.png"
 import player1 from "../img/player-1.png"
@@ -15,7 +16,7 @@ import broom from "../img/broom.png"
 
 
 export const image = {
-    back: [backImage1,backImage2,backImage3],
+    back: [backImage1,backImage2,backImage3,backImage4],
     head: [boy,girl],
     player: [player1,player2],
     leftStudent: [left1,left2],

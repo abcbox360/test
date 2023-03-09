@@ -1,10 +1,10 @@
 import styled, { keyframes } from "styled-components"
 import { text } from "./text"
 import { sound } from "./sound"
-import backImage1 from "../img/2.jpg"
 import { image } from "../img/image"
 import { useState } from "react"
 import { AiOutlineSound, AiOutlinePause } from "react-icons/ai";
+import Images from "./Images"
 const shake = keyframes`
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
@@ -19,28 +19,10 @@ const shake = keyframes`
       transform: translate3d(4px, 0, 0);
     }
   `
-  const shake2 = keyframes`
-  2.5%, 22.5% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  5%, 20% {
-    transform: translate3d(2px, 0, 0);
-  }
-  7.5%, 12.5%, 17.5% {
-    transform: translate3d(-3px, 0, 0);
-  }
-  10%, 15% {
-    transform: translate3d(3px, 0, 0);
-  }
-`
 const Container = styled.div`
 position: relative;
 width: 100%;
 margin-bottom: 500px;
-`
-const ImageContainer = styled.div`
-position: relative;
-width: 100%;
 `
 const Questions = styled.div`
 position: absolute;
@@ -59,80 +41,6 @@ font-size: 24px;
     font-size: 20px;
     position: relative;
 }
-`
-const BackImage = styled.img`
-position: relative;
-z-index: -1;
-width: 100%;
-`
-const LeftImage = styled.img`
-width: 100%;
-position: absolute;
-left:0;
-`
-const PlayerImage = styled.img`
-width: 100%;
-position: absolute;
-left:0;
-`
-const RightImage = styled.img`
-width: 100%;
-position: absolute;
-left:0;
-`
-const PenImage = styled.img`
-position: absolute;
-width: 6%;
-left: 24%;
-bottom: 13%;
-transition: left 2s, bottom 2s;
-animation: ${props => props.$active && shake2} 4s linear infinite;
-${props => props.$complete && `
-left: 36%;
-bottom: 10%;
-`}
-`
-const EraserImage = styled.img`
-position: absolute;
-width: 4%;
-left: 88%;
-bottom: 13%;
-`
-const BroomImage = styled.img`
-position: absolute;
-width: 15%;
-left: -4%;
-bottom: 9%;
-`
-const trans = keyframes`
-    0% {transform: scale(1)}
-    50% {transform: scale(0.8)}
-    100% {transform: scale(1)}
-`
-const LeftButton = styled.div`
-position: absolute;
-max-width: 210px;
-max-height: 210px;
-top: 45%;
-left: 6.5%;
-width: 20vw;
-height: 20vw;
-border: 5px dashed rgba(0, 0, 0, 0.5);
-cursor: pointer;
-animation: ${props => props.$active && trans} 3s linear infinite;
-${props => props.$active && `
-border-radius: 50%;
-cursor: auto;
-border: 5px dashed rgba(256, 0, 0, 0.5);
-`}
-${props => props.$complete && `
-cursor: auto;
-border: none;
-`}
-`
-const RightButton = styled(LeftButton)`
-right: 8%;
-left: auto;
 `
 const WordContainer = styled.div`
 position: relative;
@@ -250,9 +158,12 @@ height: 45px;
 margin: auto;
 border-radius: 50%;
 border: 1px solid black;
-padding: 2px;
 cursor: pointer;
 margin: 10px; 
+justify-content: center;
+align-items: center;
+display: flex;
+
 &:hover {
     box-shadow: 0 0 5px #000;
 }
@@ -264,42 +175,13 @@ box-shadow: 0 0 5px #000;
 background: rgb(200, 200, 200);
 `}
 `
-const LeftName = styled.div`
-position: absolute;
-font-size: 1.7vw;
-left: 24%;
-bottom: 10%;
-font-weight: 600;
-@media screen and (min-width: 1000px){
-    font-size: 18px;
-}
-`
-const RightName = styled(LeftName)`
-left: auto;
-right: 6.5%;
-@media screen and (max-width: 650px){
-    right: 5%;
-}
-`
-const LeftAddress = styled(LeftName)`
-color: rgb(0, 0, 256);
-left: 17%;
-@media screen and (max-width: 650px){
-    left: 16%;
-}
-`
-const RightAddres = styled(LeftName)`
-color: rgb(0, 0, 256);
-left: auto;
-right: 15%;
-`
 const Complete = styled(AnswerContainer)`
 font-size: 24px;
 `
 const CompleteButton = styled(AskButton)`
 font-size: 24px;
 position: static;
-width: 150px;
+width: 170px;
 margin: 5px;
 `
 
@@ -314,24 +196,7 @@ function Game(props) {
     const [complete, setComplete] = useState(0)
     const [shakeAnima, setShakeAnima] = useState(0)
     const [autoAsk, setAutoAsk] = useState(0)
-    let names = text[stage].name
-    const handleClickSelect = (e) => {
-        const id = Number(e.target.id)
-        if (complete !== 3){
-            if (step === id) {
-            } else if (id === 1 && complete !== 1) {
-                setStep(1)
-                setWordText([])
-                setAskStep(0)
-                setWords(text[stage].word)
-            } else if (id === 2 && complete !== 2) {
-                setStep(2)
-                setWordText([])
-                setAskStep(0)
-                setWords(text[stage].word)
-            }
-        }
-    }
+    let names = text[stage].select
     const handleClickNew = (e) => {
         let w = wordText
         let w2 = words
@@ -356,7 +221,7 @@ function Game(props) {
             setSoundPlay(step)
             document.getElementById("s" + step).play()
             document.getElementById("s" + step).addEventListener("ended", () => { setSoundPlay(0) })
-            
+
         } else {
             setAutoAsk(autoAsk + 1)
             setAskStep(3)
@@ -366,7 +231,7 @@ function Game(props) {
         }
     }
     const handleClickAutoAsk = () => {
-        let w = text[stage].word.filter(w=>text[stage].ask.indexOf(w) === -1)
+        let w = text[stage].word.filter(w => text[stage].ask.indexOf(w) === -1)
         setWords(w)
         setWordText([text[stage].ask])
         handleClickAsk(1)
@@ -413,15 +278,21 @@ function Game(props) {
                 setAskStep(0)
                 setStep(0)
             } else if (step === 1) {
-                if(stage === 3){
+                if (stage === 3 || stage === 5) {
                     setComplete(3)
                     setStep(0)
-                }else{
+                } else {
                     setStep(2)
-                    setComplete(step)}
+                    setComplete(step)
+                }
             } else {
-                setStep(1)
-                setComplete(step)
+                if (stage === 4) {
+                    setComplete(3)
+                    setStep(0)
+                } else {
+                    setStep(1)
+                    setComplete(step)
+                }
             }
             setWordText([])
             setWords(text[stage].word)
@@ -449,31 +320,20 @@ function Game(props) {
         setWords(text[stage + 1].word)
         setStage(stage + 1)
     }
+    const reStage = () => {
+        setStage(1)
+        reStart()
+    }
     return (
         <Container>
-            {sound[stage].map((s, i) => <audio src={s} key={"s" + i} id={"s" + i}></audio>)}
             <Questions>
                 {text[stage].question.map((q, i) => <div key={"q" + i}>{q}</div>)}
             </Questions>
-            <ImageContainer>
-            <BackImage src={backImage1} />
-            <BroomImage src={image.broom}/>
-            <LeftImage src={step === 1 ? image.leftStudent[1] : image.leftStudent[0]} />
-            <PlayerImage src={step === 2 ? image.player[1] : image.player[0]} />
-            <RightImage src={step === 2 ? image.rightStudent[1] : image.rightStudent[0]} />
-            <LeftButton onClick={handleClickSelect} id={1} $active={step === 1} $complete={complete === 1 || complete === 3} />
-            <RightButton onClick={handleClickSelect} id={2} $active={step === 2} $complete={complete === 2 || complete === 3} />
-            <PenImage src={image.pen} $active={stage === 3 && complete !== 3} $complete={(stage === 3 && complete === 3) || stage > 3}/>
-            <EraserImage src={image.eraser}/>
-            {/* 名牌 */}
-            {(complete === 1 || complete === 3 || stage > 1) && <LeftName>{text[1].answer[0]}</LeftName>}
-            {(complete === 2 || complete === 3 || stage > 1) && <RightName>{text[1].answer[1]}</RightName>}
-            {/* 居住地 */}
-            {(complete === 1 || complete === 3 || stage > 2) && stage > 1 && <LeftAddress>{text[2].answer[0]}</LeftAddress>}
-            {(complete === 2 || complete === 3 || stage > 2) && stage > 1 && <RightAddres>{text[2].answer[1]}</RightAddres>}
-            </ImageContainer>
+            <Images stage={stage} complete={complete} step={step}
+                setStep={setStep} setWordText={setWordText}
+                setAskStep={setAskStep} setWords={setWords} />
             {/* 問錯 */}
-            {(askStep === 3 || (stage === 3 && askStep === 2)) && <AnswerContainer>
+            {(askStep === 3 || ((stage === 3 || stage === 5) && askStep === 2) || (stage === 4 && askStep === 1)) && <AnswerContainer>
                 <SoundPlay onClick={handleClickSound} id={askStep} playing={soundPlay > 0 && soundPlay < 4}>{soundPlay > 0 && soundPlay < 4 ? <AiOutlinePause /> : <AiOutlineSound />}</SoundPlay>
             </AnswerContainer>
             }
@@ -486,13 +346,13 @@ function Game(props) {
                     {words.map((w) => <Word onClick={handleClickNew} id={w} key={w}>{w}</Word>)}
                 </Words>
                 <Buttons>
-                <AskButton onClick={handleClickAsk}>提問</AskButton>
-                {autoAsk > 2 && <AutoAskButton onClick={handleClickAutoAsk}>自動發問!</AutoAskButton>}
+                    <AskButton onClick={handleClickAsk}>提問</AskButton>
+                    {autoAsk > 2 && <AutoAskButton onClick={handleClickAutoAsk}>自動發問!</AutoAskButton>}
                 </Buttons>
             </WordContainer>
             }
             {/* 發問正確選姓名 */}
-            {((stage < 3 && askStep > 0 && askStep < 3) || (stage === 3 && askStep === 1))&& <AnswerContainer>
+            {((stage < 3 && askStep > 0 && askStep < 3) || ((stage === 3 || stage === 5) && askStep === 1) || (stage === 4 && askStep === 2)) && <AnswerContainer>
                 <Answer>
                     {names.map((n) => <Word onClick={handleClickSelectName} $shake={shakeAnima === n} id={n} key={n}>{n}</Word>)}
                 </Answer>
@@ -502,7 +362,7 @@ function Game(props) {
             {/* 發問正確 */}
             {step > 0 && askStep > 0 && askStep < 3 && <WordContainer>
                 <WordText>
-                    <Ask>{wordText.map((w) => w)}?</Ask>
+                    <Ask>{wordText.map((w) => w)}</Ask>
                 </WordText>
                 <SoundPlay onClick={handleClickSound} id="4" playing={soundPlay === 4}>{soundPlay === 4 ? <AiOutlinePause /> : <AiOutlineSound />}</SoundPlay>
             </WordContainer>
@@ -512,9 +372,10 @@ function Game(props) {
                 <div>任務完成!</div>
                 <div>
                     <CompleteButton onClick={reStart}>再玩一次</CompleteButton>
-                    <CompleteButton onClick={handleClickNextStage}>繼續下一題</CompleteButton>
+                    {stage === 5 ? <CompleteButton onClick={reStage}>從第一關開始</CompleteButton> : <CompleteButton onClick={handleClickNextStage}>繼續下一題</CompleteButton>}
                 </div>
             </Complete>}
+            {sound[stage].map((s, i) => <audio src={s} key={"s" + i} id={"s" + i}></audio>)}
         </Container>
     )
 }

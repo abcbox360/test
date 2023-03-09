@@ -8,10 +8,27 @@ flex-direction: column;
 align-items: center;
 text-align: center;
 font-size: 12px;
+color: rgb(100, 100, 100);
+@media screen and (min-width: 650px) {
+    flex-direction: row;
+}
 `
 const Info = styled.div`
 margin: 10px 0;
-padding: 0 10px;
+width: 25%;
+padding: 0 15px;
+text-align: left;
+&:nth-child(3) {
+    text-align: center;
+}
+@media screen and (max-width: 650px) {
+    width: auto;
+    text-align: center;
+    padding: 0 10px;
+    &:nth-child(3),:nth-child(4) {
+        display:none;
+    }
+}
 `
 
 function Footer() {
@@ -28,6 +45,16 @@ function Footer() {
         <p>Digital Center of  Alien  Languages Production</p>
         <p>電子信箱：alienlang@gmail.com</p>
         <p>( 02 ) 1111 - 2222</p>
+        </Info>
+        <Info>
+        <p>網站最佳瀏覽解析度</p>
+        <p>1024 x 768 以上</p>
+        <br></br>
+        <p>推薦使用瀏覽器</p>
+        <p>Chrome Safari</p>
+        </Info>
+        <Info>
+        <p>網站地圖  網站授權說明</p>
         </Info>
     </Container>
 }

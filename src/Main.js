@@ -20,7 +20,7 @@ width: 250px;
 height: 66px;
 background: #fccf00;
 border-radius: 5px;
-font-size: 3em;
+font-size: 2.6em;
 display: flex;
 justify-content: center;
 margin: 10px auto;
@@ -40,7 +40,7 @@ function Main () {
         <TeachButton>教學模組2.0</TeachButton>
         <DifficultyButton>初級</DifficultyButton>
         <DifficultyButton to="/medium">中級</DifficultyButton>
-        <DifficultyButton>高級</DifficultyButton>
+        <DifficultyButton>中高級</DifficultyButton>
         <Footer />
     </MainContainer>
 }
